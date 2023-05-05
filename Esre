@@ -1,2 +1,10 @@
 $Alsh = "5940545629:AAEnLXkMe-U5gEi2CSvH_CA8YFoHEgV8NSs"; #
-
+#
+$join = file_get_contents("https://api.telegram.org/bot".$Alsh."/getChatMember?chat_id=$ali&user_id=".$from_id);
+if($message && (strpos($join,'"status":"left"') or strpos($join,'"Bad Request: USER_ID_INVALID"') or strpos($join,'"status":"kicked"'))!== false){
+bot('sendMessage',['chat_id'=>$chat_id,
+'text'=>"
+اهلٱ عزيزي ، ٱشترك في قناة البوت
+https://t.me/Ibrahim_TECH_5- $ali
+• بـعـدَ الاشتراك الضغط • */start • ",
+]);return false;}
